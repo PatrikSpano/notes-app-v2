@@ -10,20 +10,44 @@ import CoreData
 
 struct ContentView: View {
     // MARK: - PROPERTIES
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @State private var showingAddNoteView: Bool = false
+    
+    @FetchRequest(fetchRequest: getNoteFetchRequest)
+    
+    var notes: FetchedResults<Note>
+    
+    static var getNoteFetchRequest: NSFetchRequest<Note> {
+            let request: NSFetchRequest<Note> = Note.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Note.title, ascending: true)]
+            return request
+       }
     
     @State private var searchText = ""
 
+    /*
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    */
     
     // MARK: - BODY
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(self.notes, id: \.self) { note in
+                    NavigationLink(destination: NoteView2()) {
+                       Text(note.title ?? "Unknown")
+                           .font(.headline)
+
+                       Spacer()
+                       
+                       Text(note.group ?? "Unknown")
+                       }
+                   } //: FOREACH
+                /*ForEach(items) { item in
                     /*
                     NavigationLink {
                         Text("Item at \(item.timestamp!, formatter: itemFormatter)")
@@ -35,30 +59,36 @@ struct ContentView: View {
                         Text(item.timestamp!, formatter: itemFormatter)
                     }
                     .navigationTitle("My Notes")
-                }
-                .onDelete(perform: deleteItems)
+                } */
+                .onDelete(perform: deleteNote)
             }
             .searchable(text: $searchText)
-            
+            .navigationBarTitle("My Notes", displayMode: .large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                         //.foregroundColor(.yellow)
                 }
                 ToolbarItem(placement : .navigationBarTrailing) {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "square.and.pencil")
+                    Button(action: {
+                        self.showingAddNoteView.toggle()
+                              }) {
+                            Label("Add Item", systemImage: "square.and.pencil")
+                        }
+                        .sheet(isPresented: $showingAddNoteView){
+                            AddNoteView().environment(\.managedObjectContext, self.managedObjectContext)
                             //.foregroundColor(.yellow)
                     }
                 }
                 ToolbarItem(placement: .bottomBar) {
-                    Text("\(items.count) Notes")
+                    Text("\(notes.count) Notes")
                 }
             }
             Text("Select an item")
         }
     }
 
+    /*
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
@@ -86,6 +116,18 @@ struct ContentView: View {
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    } */
+    private func deleteNote(at offsets: IndexSet) {
+        for index in offsets {
+            let note = notes[index]
+            managedObjectContext.delete(note)
+            
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print(error)
             }
         }
     }

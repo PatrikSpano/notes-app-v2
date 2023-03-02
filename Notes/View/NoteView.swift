@@ -29,7 +29,7 @@ struct NoteView: View {
                     // MARK: - NOTE NAME
                     TextField("Title", text: $title)
                     TextEditor(text: $inputText)
-                        .frame(height: 300)
+                        .frame(height: 480)
                     
                     // MARK: - NOTE GROUP
                     Picker("Group", selection: $group) {
