@@ -30,11 +30,18 @@ struct NoteView2: View {
     var body: some View {
         VStack {
             Form {
+                ForEach (self.notes, id: \.self) { note in
                 // MARK: - NOTE NAME
-                TextField("Title", text: $title)
+                    TextField("Title", text: $title)
+                    .onAppear {
+                            title = note.title ?? ""
+                            inputText = note.inputText ?? ""
+                            group = note.group ?? ""
+                    }
+                    
                 TextEditor(text: $inputText)
                     .frame(height: 480)
-                
+                } //: FOREACH
                 // MARK: - NOTE GROUP
                 Picker("Group", selection: $group) {
                     ForEach(groups, id: \.self) {
@@ -71,13 +78,6 @@ struct NoteView2: View {
         } //: VSTACK
         .navigationBarTitle("Note", displayMode: .inline)
         
-        .onAppear {
-            if let note = notes.first {
-                _title = State(initialValue: note.title ?? "")
-                _inputText = State(initialValue: note.inputText ?? "")
-                _group = State(initialValue: note.group ?? "Personal")
-            }
-        }
         .alert(isPresented: $errorShowing) {
             Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
         }
