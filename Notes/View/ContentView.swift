@@ -38,10 +38,10 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(self.notes, id: \.self) { note in
-                    NavigationLink(destination: NoteView2()) {
+                    NavigationLink(destination: NoteView()) {
                        Text(note.title ?? "Unknown")
                            .font(.headline)
-
+                        
                        Spacer()
                        
                        Text(note.group ?? "Unknown")

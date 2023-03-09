@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct NoteView2: View {
+struct NoteView: View {
     // MARK: - PROPERTIES
     
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -30,62 +30,58 @@ struct NoteView2: View {
     var body: some View {
         VStack {
             Form {
-                ForEach (self.notes, id: \.self) { note in
-                // MARK: - NOTE NAME
+                ForEach(self.notes, id: \.self) { note in
                     TextField("Title", text: $title)
-                    .onAppear {
-                            title = note.title ?? ""
-                            inputText = note.inputText ?? ""
-                            group = note.group ?? ""
-                    }
-                    
-                TextEditor(text: $inputText)
-                    .frame(height: 480)
-                } //: FOREACH
-                // MARK: - NOTE GROUP
-                Picker("Group", selection: $group) {
-                    ForEach(groups, id: \.self) {
-                        Text($0)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                
-                // MARK: - SAVE BUTTON
-                Button(action: {
-                    if self.title != "" {
-                        let noteToSave = notes.first ?? Note(context: managedObjectContext)
-                        noteToSave.title = title
-                        noteToSave.inputText = inputText
-                        noteToSave.group = group
-                        
-                        do {
-                            try managedObjectContext.save()
-                            print("Note title: \(noteToSave.title ?? ""), Note text: \(noteToSave.inputText ?? ""), Note group: \(noteToSave.group ?? "")")
-                        } catch {
-                            print(error)
+                    TextEditor(text: $inputText)
+                        .frame(height: 480)
+                    Picker("Group", selection: $group) {
+                        ForEach(self.groups, id: \.self) {
+                            Text($0)
                         }
-                    } else {
-                        self.errorShowing = true
-                        self.errorTitle = "Invalid Name"
-                        self.errorMessage = "Make sure to fill in all field."
-                        return
                     }
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Update")
-                } //: SAVE BUTTON
+                    .pickerStyle(SegmentedPickerStyle())
+                    .onAppear(perform: {
+                        self.title = note.title ?? ""
+                        self.inputText = note.inputText ?? ""
+                        self.group = note.group ?? ""
+                    })
+                } //: FOREACH
             } //: FORM
+            
+            // MARK: - SAVE BUTTON
+            Button(action: {
+                if self.title != "" {
+                    let noteToSave = notes.first ?? Note(context: managedObjectContext)
+                    noteToSave.title = title
+                    noteToSave.inputText = inputText
+                    noteToSave.group = group
+                    
+                    do {
+                        try managedObjectContext.save()
+                        print("Note title: \(noteToSave.title ?? ""), Note text: \(noteToSave.inputText ?? ""), Note group: \(noteToSave.group ?? "")")
+                    } catch {
+                        print(error)
+                    }
+                } else {
+                    self.errorShowing = true
+                    self.errorTitle = "Invalid Name"
+                    self.errorMessage = "Make sure to fill in all fields."
+                    return
+                }
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("Update")
+            } //: SAVE BUTTON
         } //: VSTACK
         .navigationBarTitle("Note", displayMode: .inline)
-        
         .alert(isPresented: $errorShowing) {
             Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
         }
     }
 }
 
-struct NoteView2_Previews: PreviewProvider {
+struct NoteView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteView2()
+        NoteView()
     }
 }

@@ -26,6 +26,9 @@ struct AddNoteView: View {
     @State private var errorTitle: String = ""
     @State private var errorMessage: String = ""
     
+    @State var isPickerShowing = false
+    @State var selectedImage: UIImage?
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -33,7 +36,14 @@ struct AddNoteView: View {
                     // MARK: - NOTE NAME
                     TextField("Title", text: $title)
                     TextEditor(text: $inputText)
-                        .frame(height: 480)
+                        .frame(height: 400)
+                    
+                   // MARK: - IMAGE
+                    if selectedImage != nil {
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .frame(width: 450, height: 450)
+                    }
                     
                     // MARK: - NOTE GROUP
                     Picker("Group", selection: $group) {
@@ -69,14 +79,35 @@ struct AddNoteView: View {
                 } //: SAVE BUTTON
                 } //: FORM
             } //: VSTACK
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                     self.presentationMode.wrappedValue.dismiss()
+                 }) {
+                     Image(systemName: "xmark")
+                 }
+                }
+                
+                ToolbarItem(placement: .bottomBar) {
+                    Button{
+                        isPickerShowing = true
+                    } label: {
+                        Image(systemName: "location")
+                    }
+                }
+                
+                ToolbarItem(placement: .bottomBar) {
+                    Button{
+                        isPickerShowing = true
+                    } label: {
+                        Image(systemName: "camera")
+                    }
+                    .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                        ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+                    }
+                }
+            }
             .navigationBarTitle("New Note", displayMode: .inline)
-             .navigationBarItems(trailing:
-                Button(action: {
-                 self.presentationMode.wrappedValue.dismiss()
-             }) {
-                 Image(systemName: "xmark")
-             }
-            )
              .alert(isPresented: $errorShowing) {
                  Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
              }
