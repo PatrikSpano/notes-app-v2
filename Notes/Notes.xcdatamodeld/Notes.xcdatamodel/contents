@@ -10,5 +10,6 @@
         <attribute name="inputText" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="userLocation" optional="YES" attributeType="String"/>
     </entity>
 </model>

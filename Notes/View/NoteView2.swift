@@ -13,75 +13,69 @@ struct NoteView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
-    
-    @State private var title: String = ""
-    @State private var inputText: String = ""
-    @State private var group: String = "Personal"
-    
+
+    @ObservedObject var note: Note
+
+    @State private var title: String
+    @State private var inputText: String
+    @State private var group: String
+
     let groups = ["School", "Work", "Personal"]
-    
-    @State private var errorShowing: Bool = false
-    @State private var errorTitle: String = ""
-    @State private var errorMessage: String = ""
-    
-    @FetchRequest(entity: Note.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Note.title, ascending: true)])
-    var notes: FetchedResults<Note>
-    
+
+    init(note: Note) {
+        self.note = note
+        _title = State(initialValue: note.title ?? "")
+        _inputText = State(initialValue: note.inputText ?? "")
+        _group = State(initialValue: note.group ?? "Personal")
+    }
+
+    // MARK: - BODY
     var body: some View {
         VStack {
             Form {
-                ForEach(self.notes, id: \.self) { note in
-                    TextField("Title", text: $title)
-                    TextEditor(text: $inputText)
-                        .frame(height: 480)
-                    Picker("Group", selection: $group) {
-                        ForEach(self.groups, id: \.self) {
-                            Text($0)
-                        }
+                TextField("Title", text: $title)
+                TextEditor(text: $inputText)
+                    .frame(height: 480)
+                Picker("Group", selection: $group) {
+                    ForEach(self.groups, id: \.self) {
+                        Text($0)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .onAppear(perform: {
-                        self.title = note.title ?? ""
-                        self.inputText = note.inputText ?? ""
-                        self.group = note.group ?? ""
-                    })
-                } //: FOREACH
-            } //: FORM
-            
-            // MARK: - SAVE BUTTON
-            Button(action: {
-                if self.title != "" {
-                    let noteToSave = notes.first ?? Note(context: managedObjectContext)
-                    noteToSave.title = title
-                    noteToSave.inputText = inputText
-                    noteToSave.group = group
-                    
-                    do {
-                        try managedObjectContext.save()
-                        print("Note title: \(noteToSave.title ?? ""), Note text: \(noteToSave.inputText ?? ""), Note group: \(noteToSave.group ?? "")")
-                    } catch {
-                        print(error)
-                    }
-                } else {
-                    self.errorShowing = true
-                    self.errorTitle = "Invalid Name"
-                    self.errorMessage = "Make sure to fill in all fields."
-                    return
                 }
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("Update")
-            } //: SAVE BUTTON
+                .pickerStyle(SegmentedPickerStyle())
+                
+                // MARK: - UPDATE BUTTON
+                Button(action: {
+                    if self.title != "" {
+                        note.title = title
+                        note.inputText = inputText
+                        note.group = group
+                        
+                        do {
+                            try managedObjectContext.save()
+                            print("Note title: \(note.title ?? ""), Note text: \(note.inputText ?? ""), Note group: \(note.group ?? "")")
+                        } catch {
+                            print(error)
+                        }
+                    } else {
+                        // Display error message
+                    }
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Update")
+                } //: UPDATE BUTTON
+            } //: FORM
         } //: VSTACK
         .navigationBarTitle("Note", displayMode: .inline)
-        .alert(isPresented: $errorShowing) {
-            Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
-        }
     }
 }
 
 struct NoteView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteView()
+        let note = Note(context: PersistenceController.preview.container.viewContext)
+        note.title = "Sample Note"
+        note.inputText = "This is a sample note."
+        note.group = "Personal"
+        return NoteView(note: note)
     }
 }
+

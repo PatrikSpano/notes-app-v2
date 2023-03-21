@@ -15,6 +15,7 @@
 		3A3C0FBC29A6895A0055C4AD /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C0FBA29A6895A0055C4AD /* Notes.xcdatamodeld */; };
 		3A3C0FC329A807180055C4AD /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C0FC229A807170055C4AD /* AddNoteView.swift */; };
 		3A56AB1229BA69690016636B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1129BA69690016636B /* ImagePicker.swift */; };
+		3A56AB1429BE1BBA0016636B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1329BE1BBA0016636B /* LocationManager.swift */; };
 		3AD0B62F29B1377300C051D8 /* NoteView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0B62E29B1377300C051D8 /* NoteView2.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		3A3C0FBB29A6895A0055C4AD /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 		3A3C0FC229A807170055C4AD /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		3A56AB1129BA69690016636B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		3A56AB1329BE1BBA0016636B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3AD0B62E29B1377300C051D8 /* NoteView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,8 @@
 			children = (
 				3A3C0FAF29A689560055C4AD /* NotesApp.swift */,
 				3A3C0FB829A6895A0055C4AD /* Persistence.swift */,
+				3A56AB1129BA69690016636B /* ImagePicker.swift */,
+				3A56AB1329BE1BBA0016636B /* LocationManager.swift */,
 				3A3C0FC629ABDC740055C4AD /* View */,
 				3A3C0FBA29A6895A0055C4AD /* Notes.xcdatamodeld */,
 				3A3C0FB329A6895A0055C4AD /* Assets.xcassets */,
@@ -84,7 +88,6 @@
 			children = (
 				3A3C0FB129A689560055C4AD /* ContentView.swift */,
 				3A3C0FC229A807170055C4AD /* AddNoteView.swift */,
-				3A56AB1129BA69690016636B /* ImagePicker.swift */,
 				3AD0B62E29B1377300C051D8 /* NoteView2.swift */,
 			);
 			path = View;
@@ -164,6 +167,7 @@
 				3A3C0FB229A689560055C4AD /* ContentView.swift in Sources */,
 				3A3C0FB029A689560055C4AD /* NotesApp.swift in Sources */,
 				3A56AB1229BA69690016636B /* ImagePicker.swift in Sources */,
+				3A56AB1429BE1BBA0016636B /* LocationManager.swift in Sources */,
 				3AD0B62F29B1377300C051D8 /* NoteView2.swift in Sources */,
 				3A3C0FBC29A6895A0055C4AD /* Notes.xcdatamodeld in Sources */,
 				3A3C0FC329A807180055C4AD /* AddNoteView.swift in Sources */,
@@ -298,6 +302,8 @@
 				DEVELOPMENT_TEAM = 7SP54U4MBT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +333,8 @@
 				DEVELOPMENT_TEAM = 7SP54U4MBT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -10,6 +10,9 @@ import CoreData
 
 struct ContentView: View {
     // MARK: - PROPERTIES
+    
+    @ObservedObject var locationManager = LocationManager.shared
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @State private var showingAddNoteView: Bool = false
@@ -38,9 +41,12 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(self.notes, id: \.self) { note in
-                    NavigationLink(destination: NoteView()) {
+                    NavigationLink(destination: NoteView(note: note)) {
                        Text(note.title ?? "Unknown")
                            .font(.headline)
+                       
+                        //Text("Note at \(note.timestamp!, formatter: itemFormatter)")
+                        //   .font(.footnote)
                         
                        Spacer()
                        
@@ -71,6 +77,7 @@ struct ContentView: View {
                 }
                 ToolbarItem(placement : .navigationBarTrailing) {
                     Button(action: {
+                        locationManager.userAddress = nil // Reset userAddress
                         self.showingAddNoteView.toggle()
                               }) {
                             Label("Add Item", systemImage: "square.and.pencil")
@@ -82,6 +89,7 @@ struct ContentView: View {
                 }
                 ToolbarItem(placement: .bottomBar) {
                     Text("\(notes.count) Notes")
+                        .font(.footnote)
                 }
             }
             Text("Select an item")

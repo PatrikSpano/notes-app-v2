@@ -1,4 +1,4 @@
-//
+ //
 //  ImagePicker.swift
 //  Notes
 //
@@ -14,10 +14,13 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
     @Binding var isPickerShowing: Bool
     
+    //var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    
     func makeUIViewController(context: Context) -> some UIViewController {
         
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = .camera
+        //imagePicker.sourceType = sourceType
         imagePicker.delegate = context.coordinator
         
         return imagePicker

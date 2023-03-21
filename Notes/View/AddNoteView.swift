@@ -13,6 +13,8 @@ import CoreLocationUI
 struct AddNoteView: View {
     // MARK: - PROPERTIES
     
+    @ObservedObject var locationManager = LocationManager.shared
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
     
@@ -29,21 +31,39 @@ struct AddNoteView: View {
     @State var isPickerShowing = false
     @State var selectedImage: UIImage?
     
+    @State private var showLocation = false
+    @State private var showLocationButton = true
+    
     var body: some View {
         NavigationView {
             VStack {
                 Form {
-                    // MARK: - NOTE NAME
+                    // MARK: - HEADING
                     TextField("Title", text: $title)
+                        .submitLabel(.done)
+                    
+                    //MARK: - LOCATION
+                    if locationManager.userAddress != nil {
+                        HStack {
+                            Image(systemName: "mappin.and.ellipse")
+                            Text(locationManager.userAddress!)
+                                .foregroundColor(.gray)
+                                .font(.footnote)
+                            }
+                        }
+                    
+                    // MARK: - IMAGE
+                     if selectedImage != nil {
+                         Image(uiImage: selectedImage!)
+                             .resizable()
+                             .scaledToFit()
+                             .frame(width: 450, height: 450)
+                     }
+                    
+                    // MARK: - TEXT EDITOR
                     TextEditor(text: $inputText)
                         .frame(height: 400)
-                    
-                   // MARK: - IMAGE
-                    if selectedImage != nil {
-                        Image(uiImage: selectedImage!)
-                            .resizable()
-                            .frame(width: 450, height: 450)
-                    }
+                        .submitLabel(.done)
                     
                     // MARK: - NOTE GROUP
                     Picker("Group", selection: $group) {
@@ -61,9 +81,21 @@ struct AddNoteView: View {
                             note.inputText = self.inputText
                             note.group = self.group
                             
+                            // Store user location in the note
+                            if let userAddress = locationManager.userAddress {
+                                note.userLocation = userAddress
+                            }
+                            
+                            // Store the image in the note
+                            if let selectedImage = selectedImage {
+                                if let imageData = selectedImage.jpegData(compressionQuality: 1.0) {
+                                        note.image = imageData
+                                }
+                            }
+                            
                             do {
                                 try self.managedObjectContext.save()
-                                print("Note title: \(note.title ?? ""), Note text: \(note.inputText ?? ""), Note group: \(note.group ?? "")")
+                                print("title: \(note.title ?? ""), text: \(note.inputText ?? ""), group: \(note.group ?? ""), location: \(note.userLocation ?? "")")
                             } catch {
                                 print(error)
                             }
@@ -76,12 +108,14 @@ struct AddNoteView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Save")
-                } //: SAVE BUTTON
+                    } //: SAVE BUTTON
                 } //: FORM
             } //: VSTACK
+            // MARK: - TOOLBAR
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                     locationManager.userAddress = nil // Reset userAddress
                      self.presentationMode.wrappedValue.dismiss()
                  }) {
                      Image(systemName: "xmark")
@@ -89,13 +123,18 @@ struct AddNoteView: View {
                 }
                 
                 ToolbarItem(placement: .bottomBar) {
-                    Button{
-                        isPickerShowing = true
+                    Button {
+                        if showLocationButton {
+                            LocationManager.shared.requestLocation()
+                        } else {
+                            showLocation.toggle()
+                            LocationManager.shared.requestLocation()
+                        }
                     } label: {
                         Image(systemName: "location")
                     }
                 }
-                
+                                
                 ToolbarItem(placement: .bottomBar) {
                     Button{
                         isPickerShowing = true
@@ -106,6 +145,9 @@ struct AddNoteView: View {
                         ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
                     }
                 }
+            }
+            .onReceive(locationManager.$userLocation) { userLocation in
+                showLocationButton = userLocation == nil
             }
             .navigationBarTitle("New Note", displayMode: .inline)
              .alert(isPresented: $errorShowing) {
