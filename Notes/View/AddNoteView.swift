@@ -51,7 +51,6 @@ struct AddNoteView: View {
                                 .font(.footnote)
                             }
                         }
-                    
                     // MARK: - IMAGE
                      if selectedImage != nil {
                          Image(uiImage: selectedImage!)
@@ -111,6 +110,7 @@ struct AddNoteView: View {
                     } //: SAVE BUTTON
                 } //: FORM
             } //: VSTACK
+            
             // MARK: - TOOLBAR
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

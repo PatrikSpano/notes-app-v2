@@ -28,13 +28,6 @@ struct ContentView: View {
        }
     
     @State private var searchText = ""
-
-    /*
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-    */
     
     // MARK: - BODY
     var body: some View {
@@ -44,28 +37,13 @@ struct ContentView: View {
                     NavigationLink(destination: NoteView(note: note)) {
                        Text(note.title ?? "Unknown")
                            .font(.headline)
-                       
-                        //Text("Note at \(note.timestamp!, formatter: itemFormatter)")
-                        //   .font(.footnote)
-                        
+ 
                        Spacer()
                        
                        Text(note.group ?? "Unknown")
                        }
                    } //: FOREACH
-                /*ForEach(items) { item in
-                    /*
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                    */
-                    NavigationLink(destination: NoteView()){
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                    .navigationTitle("My Notes")
-                } */
+        
                 .onDelete(perform: deleteNote)
             }
             .searchable(text: $searchText)
@@ -95,38 +73,7 @@ struct ContentView: View {
             Text("Select an item")
         }
     }
-
-    /*
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    } */
+    
     private func deleteNote(at offsets: IndexSet) {
         for index in offsets {
             let note = notes[index]
