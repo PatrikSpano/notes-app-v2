@@ -16,7 +16,7 @@
 		3A3C0FC329A807180055C4AD /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C0FC229A807170055C4AD /* AddNoteView.swift */; };
 		3A56AB1229BA69690016636B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1129BA69690016636B /* ImagePicker.swift */; };
 		3A56AB1429BE1BBA0016636B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1329BE1BBA0016636B /* LocationManager.swift */; };
-		3AD0B62F29B1377300C051D8 /* NoteView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0B62E29B1377300C051D8 /* NoteView2.swift */; };
+		3AD0B62F29B1377300C051D8 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0B62E29B1377300C051D8 /* NoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 		3A3C0FC229A807170055C4AD /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		3A56AB1129BA69690016636B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3A56AB1329BE1BBA0016636B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		3AD0B62E29B1377300C051D8 /* NoteView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView2.swift; sourceTree = "<group>"; };
+		3AD0B62E29B1377300C051D8 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 			children = (
 				3A3C0FB129A689560055C4AD /* ContentView.swift */,
 				3A3C0FC229A807170055C4AD /* AddNoteView.swift */,
-				3AD0B62E29B1377300C051D8 /* NoteView2.swift */,
+				3AD0B62E29B1377300C051D8 /* NoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,7 +168,7 @@
 				3A3C0FB029A689560055C4AD /* NotesApp.swift in Sources */,
 				3A56AB1229BA69690016636B /* ImagePicker.swift in Sources */,
 				3A56AB1429BE1BBA0016636B /* LocationManager.swift in Sources */,
-				3AD0B62F29B1377300C051D8 /* NoteView2.swift in Sources */,
+				3AD0B62F29B1377300C051D8 /* NoteView.swift in Sources */,
 				3A3C0FBC29A6895A0055C4AD /* Notes.xcdatamodeld in Sources */,
 				3A3C0FC329A807180055C4AD /* AddNoteView.swift in Sources */,
 			);
