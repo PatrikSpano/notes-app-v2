@@ -26,8 +26,7 @@ struct NoteView: View {
     
     @State var isPickerShowing = false
     @State var selectedImage: UIImage?
-    @State private var userLocation: String? // Add this new property
-    
+    @State private var userLocation: String?
     init(note: Note) {
         self.note = note
         _title = State(initialValue: note.title ?? "")
@@ -90,6 +89,9 @@ struct NoteView: View {
                             // Store user location in the note
                             if let userAddress = locationManager.userAddress {
                                 note.userLocation = userAddress
+                            } else {
+                                // Reset userLocation to nil if location is not available
+                                note.userLocation = nil
                             }
                             
                             // Store the image in the note
@@ -146,10 +148,10 @@ struct NoteView: View {
                 }
             }
             .navigationBarTitle("Note", displayMode: .inline)
-                           }
-                           .navigationViewStyle(StackNavigationViewStyle())
-                       }
-                   }
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+    }
+ }
 
 struct NoteView_Previews: PreviewProvider {
     static var previews: some View {

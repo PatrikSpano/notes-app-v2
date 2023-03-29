@@ -22,10 +22,10 @@ struct ContentView: View {
     var notes: FetchedResults<Note>
     
     static var getNoteFetchRequest: NSFetchRequest<Note> {
-            let request: NSFetchRequest<Note> = Note.fetchRequest()
+        let request: NSFetchRequest<Note> = Note.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Note.title, ascending: true)]
-            return request
-       }
+        return request
+    }
     
     @State private var searchText = ""
     
@@ -33,17 +33,19 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(self.notes, id: \.self) { note in
+                ForEach(self.notes.filter { note in
+                    searchText.isEmpty ||
+                    note.group?.localizedStandardContains(searchText) ?? false
+                }, id: \.self) { note in
                     NavigationLink(destination: NoteView(note: note)) {
-                       Text(note.title ?? "Unknown")
-                           .font(.headline)
- 
-                       Spacer()
-                       
-                       Text(note.group ?? "Unknown")
-                       }
-                   } //: FOREACH
-        
+                        Text(note.title ?? "Unknown")
+                            .font(.headline)
+                        
+                        Spacer()
+                        
+                        Text(note.group ?? "Unknown")
+                    }
+                } //: FOREACH
                 .onDelete(perform: deleteNote)
             }
             .searchable(text: $searchText)
@@ -57,12 +59,12 @@ struct ContentView: View {
                     Button(action: {
                         locationManager.userAddress = nil // Reset userAddress
                         self.showingAddNoteView.toggle()
-                              }) {
-                            Label("Add Item", systemImage: "square.and.pencil")
-                        }
-                        .sheet(isPresented: $showingAddNoteView){
-                            AddNoteView().environment(\.managedObjectContext, self.managedObjectContext)
-                            //.foregroundColor(.yellow)
+                    }) {
+                        Label("Add Item", systemImage: "square.and.pencil")
+                    }
+                    .sheet(isPresented: $showingAddNoteView){
+                        AddNoteView().environment(\.managedObjectContext, self.managedObjectContext)
+                        //.foregroundColor(.yellow)
                     }
                 }
                 ToolbarItem(placement: .bottomBar) {
@@ -100,3 +102,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+
