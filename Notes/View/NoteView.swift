@@ -54,17 +54,17 @@ struct NoteView: View {
                     }
                     
                     // MARK: - IMAGE
-                       if let selectedImage = selectedImage {
-                           Image(uiImage: selectedImage)
-                               .resizable()
-                               .scaledToFit()
-                               .frame(width: 450, height: 450)
-                       } else if let imageData = note.image, let uiImage = UIImage(data: imageData) {
-                           Image(uiImage: uiImage)
-                               .resizable()
-                               .scaledToFit()
-                               .frame(width: 450, height: 450)
-                       }
+                    if let selectedImage = selectedImage {
+                        Image(uiImage: selectedImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 450, height: 450)
+                    } else if let imageData = note.image, let uiImage = UIImage(data: imageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 450, height: 450)
+                    }
                     
                     // MARK: - TEXT EDITOR
                     TextEditor(text: $inputText)
@@ -104,21 +104,29 @@ struct NoteView: View {
                             do {
                                 try managedObjectContext.save()
                                 print("Note title: \(note.title ?? ""), Note text: \(note.inputText ?? ""), Note group: \(note.group ?? "")")
-                                } catch {
-                                    print(error)
-                                }
-                            } else {
-                            // Display error message
+                            } catch {
+                                print(error)
                             }
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
+                        } else {
+                            // Display error message
+                        }
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
                         Text("Update")
                     } //: UPDATE BUTTON
                 } //: FORM
             } //: VSTACK
-                               
+            
             // MARK: - TOOLBAR
             .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        shareNote()
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                }
+                
                 ToolbarItem(placement: .bottomBar) {
                     Button {
                         locationManager.requestLocation()
@@ -129,7 +137,7 @@ struct NoteView: View {
                         Image(systemName: "location")
                     }
                 }
-                            
+                
                 ToolbarItem(placement: .bottomBar) {
                     Button {
                         isPickerShowing = true
@@ -151,14 +159,41 @@ struct NoteView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
- }
-
-struct NoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        let note = Note(context: PersistenceController.preview.container.viewContext)
-        note.title = "Sample Note"
-        note.inputText = "This is a sample note."
-        note.group = "Personal"
-        return NoteView(note: note)
+    
+    private func shareNote() {
+        guard let noteTitle = note.title, let noteText = note.inputText else { return }
+        
+        var itemsToShare: [Any] = [
+            """
+            \(noteTitle)
+            \(noteText)
+            """
+        ]
+        
+        if let noteLocation = note.userLocation {
+            itemsToShare.append(noteLocation)
+        }
+        
+        if let imageData = note.image, let image = UIImage(data: imageData) {
+            itemsToShare.append(image)
+        }
+        
+        let activityController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let firstWindow = windowScene.windows.first {
+                firstWindow.rootViewController?.present(activityController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    struct NoteView_Previews: PreviewProvider {
+        static var previews: some View {
+            let note = Note(context: PersistenceController.preview.container.viewContext)
+            note.title = "Sample Note"
+            note.inputText = "This is a sample note."
+            note.group = "Personal"
+            return NoteView(note: note)
+        }
     }
 }
