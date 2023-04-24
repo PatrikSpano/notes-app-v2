@@ -16,10 +16,13 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @State private var showingAddNoteView: Bool = false
+    @State private var showingSettingsView: Bool = false
     
     @FetchRequest(fetchRequest: getNoteFetchRequest)
     
     var notes: FetchedResults<Note>
+    
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     
     static var getNoteFetchRequest: NSFetchRequest<Note> {
         let request: NSFetchRequest<Note> = Note.fetchRequest()
@@ -38,23 +41,49 @@ struct ContentView: View {
                     note.group?.localizedStandardContains(searchText) ?? false
                 }, id: \.self) { note in
                     NavigationLink(destination: NoteView(note: note)) {
-                        Text(note.title ?? "Unknown")
-                            .font(.headline)
-                        
-                        Spacer()
-                        
-                        Text(note.group ?? "Unknown")
+                        HStack {
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(note.title ?? "Unknown")
+                                    .font(.headline)
+                                
+                                if let timestamp = note.timestamp {
+                                    Text(itemFormatter.string(from: timestamp))
+                                        .font(.footnote)
+                                        .foregroundColor(.gray)
+                                }
+                            }
+                            Spacer()
+                            
+                            Text(note.group ?? "Unknown")
+                        }
                     }
                 } //: FOREACH
                 .onDelete(perform: deleteNote)
-            }
+            } //: LIST
             .searchable(text: $searchText)
             .navigationBarTitle("My Notes", displayMode: .large)
+           
+            // MARK: - TOOLBAR
             .toolbar {
+                /*
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                         //.foregroundColor(.yellow)
                 }
+                */
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        self.showingSettingsView.toggle()
+                    }) {
+                        Label("Add Item", systemImage: "gear.circle")
+                    }
+                    .sheet(isPresented: $showingSettingsView){
+                        SettingsView().environment(\.managedObjectContext, self.managedObjectContext)
+                        //.foregroundColor(.yellow)
+                    }
+                }
+                
                 ToolbarItem(placement : .navigationBarTrailing) {
                     Button(action: {
                         locationManager.userAddress = nil // Reset userAddress
@@ -71,10 +100,22 @@ struct ContentView: View {
                     Text("\(notes.count) Notes")
                         .font(.footnote)
                 }
-            }
+            } //: TOOLBAR
             Text("Select an item")
+        } //: NAVIGATION
+        .onAppear {
+            updateAppAppearance()
+        }
+        .onChange(of: isDarkMode) { _ in
+            updateAppAppearance()
         }
     }
+    
+    private func updateAppAppearance() {
+            if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                windowScene.windows.first?.rootViewController?.view.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+            }
+        }
     
     private func deleteNote(at offsets: IndexSet) {
         for index in offsets {
@@ -93,7 +134,7 @@ struct ContentView: View {
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
-    formatter.timeStyle = .medium
+    formatter.timeStyle = .short
     return formatter
 }()
 

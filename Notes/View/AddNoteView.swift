@@ -34,6 +34,8 @@ struct AddNoteView: View {
     @State private var showLocation = false
     @State private var showLocationButton = true
     
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -79,6 +81,7 @@ struct AddNoteView: View {
                             note.title = self.title
                             note.inputText = self.inputText
                             note.group = self.group
+                            note.timestamp = Date()
                             
                             // Store user location in the note
                             if let userAddress = locationManager.userAddress {
@@ -119,7 +122,7 @@ struct AddNoteView: View {
                      self.presentationMode.wrappedValue.dismiss()
                  }) {
                      Image(systemName: "xmark")
-                 }
+                    }
                 }
                 
                 ToolbarItem(placement: .bottomBar) {
@@ -145,7 +148,7 @@ struct AddNoteView: View {
                         ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
                     }
                 }
-            }
+            } //: TOOLBAR
             .onReceive(locationManager.$userLocation) { userLocation in
                 showLocationButton = userLocation == nil
             }
@@ -154,6 +157,7 @@ struct AddNoteView: View {
                  Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
              }
         }
+        .environment(\.colorScheme, isDarkMode ? .dark : .light)
     }
 }
 

@@ -17,6 +17,8 @@
 		3A56AB1229BA69690016636B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1129BA69690016636B /* ImagePicker.swift */; };
 		3A56AB1429BE1BBA0016636B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1329BE1BBA0016636B /* LocationManager.swift */; };
 		3AD0B62F29B1377300C051D8 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0B62E29B1377300C051D8 /* NoteView.swift */; };
+		3AFCB52B29F5ABE60017E333 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCB52A29F5ABE60017E333 /* SettingsView.swift */; };
+		3AFCB52D29F5B2750017E333 /* FormRowStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCB52C29F5B2750017E333 /* FormRowStaticView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		3A56AB1129BA69690016636B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3A56AB1329BE1BBA0016636B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3AD0B62E29B1377300C051D8 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		3AFCB52A29F5ABE60017E333 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3AFCB52C29F5B2750017E333 /* FormRowStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowStaticView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				3A3C0FB129A689560055C4AD /* ContentView.swift */,
+				3AFCB52A29F5ABE60017E333 /* SettingsView.swift */,
+				3AFCB52C29F5B2750017E333 /* FormRowStaticView.swift */,
 				3A3C0FC229A807170055C4AD /* AddNoteView.swift */,
 				3AD0B62E29B1377300C051D8 /* NoteView.swift */,
 			);
@@ -164,11 +170,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A3C0FB929A6895A0055C4AD /* Persistence.swift in Sources */,
+				3AFCB52D29F5B2750017E333 /* FormRowStaticView.swift in Sources */,
 				3A3C0FB229A689560055C4AD /* ContentView.swift in Sources */,
 				3A3C0FB029A689560055C4AD /* NotesApp.swift in Sources */,
 				3A56AB1229BA69690016636B /* ImagePicker.swift in Sources */,
 				3A56AB1429BE1BBA0016636B /* LocationManager.swift in Sources */,
 				3AD0B62F29B1377300C051D8 /* NoteView.swift in Sources */,
+				3AFCB52B29F5ABE60017E333 /* SettingsView.swift in Sources */,
 				3A3C0FBC29A6895A0055C4AD /* Notes.xcdatamodeld in Sources */,
 				3A3C0FC329A807180055C4AD /* AddNoteView.swift in Sources */,
 			);
