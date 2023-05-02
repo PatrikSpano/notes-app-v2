@@ -31,7 +31,7 @@ struct NoteView: View {
         self.note = note
         _title = State(initialValue: note.title ?? "")
         _inputText = State(initialValue: note.inputText ?? "")
-        _group = State(initialValue: note.group ?? "Personal")
+        _group = State(initialValue: note.group ?? "Work")
     }
     
     // MARK: - BODY
@@ -192,7 +192,7 @@ struct NoteView: View {
             let note = Note(context: PersistenceController.preview.container.viewContext)
             note.title = "Sample Note"
             note.inputText = "This is a sample note."
-            note.group = "Personal"
+            note.group = "Work"
             return NoteView(note: note)
         }
     }

@@ -18,17 +18,17 @@ struct ContentView: View {
     @State private var showingAddNoteView: Bool = false
     @State private var showingSettingsView: Bool = false
     
-    @FetchRequest(fetchRequest: getNoteFetchRequest)
-    
-    var notes: FetchedResults<Note>
-    
-    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
-    
-    static var getNoteFetchRequest: NSFetchRequest<Note> {
-        let request: NSFetchRequest<Note> = Note.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Note.title, ascending: true)]
-        return request
-    }
+        @FetchRequest(fetchRequest: getNoteFetchRequest)
+        
+        var notes: FetchedResults<Note>
+        
+        @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+        
+        static var getNoteFetchRequest: NSFetchRequest<Note> {
+            let request: NSFetchRequest<Note> = Note.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \Note.timestamp, ascending: false)]
+            return request
+        }
     
     @State private var searchText = ""
     
@@ -38,7 +38,9 @@ struct ContentView: View {
             List {
                 ForEach(self.notes.filter { note in
                     searchText.isEmpty ||
-                    note.group?.localizedStandardContains(searchText) ?? false
+                    note.group?.localizedStandardContains(searchText) ?? false ||
+                    note.title?.localizedStandardContains(searchText) ?? false ||
+                    (note.timestamp != nil && itemFormatter.string(from: note.timestamp!).localizedStandardContains(searchText))
                 }, id: \.self) { note in
                     NavigationLink(destination: NoteView(note: note)) {
                         HStack {
@@ -65,13 +67,6 @@ struct ContentView: View {
            
             // MARK: - TOOLBAR
             .toolbar {
-                /*
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
-                        //.foregroundColor(.yellow)
-                }
-                */
-                
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         self.showingSettingsView.toggle()
@@ -80,7 +75,6 @@ struct ContentView: View {
                     }
                     .sheet(isPresented: $showingSettingsView){
                         SettingsView().environment(\.managedObjectContext, self.managedObjectContext)
-                        //.foregroundColor(.yellow)
                     }
                 }
                 
@@ -93,7 +87,6 @@ struct ContentView: View {
                     }
                     .sheet(isPresented: $showingAddNoteView){
                         AddNoteView().environment(\.managedObjectContext, self.managedObjectContext)
-                        //.foregroundColor(.yellow)
                     }
                 }
                 ToolbarItem(placement: .bottomBar) {

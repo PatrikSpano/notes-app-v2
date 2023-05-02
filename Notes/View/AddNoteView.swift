@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 import CoreLocation
 import CoreLocationUI
-
+    
 struct AddNoteView: View {
     // MARK: - PROPERTIES
     
