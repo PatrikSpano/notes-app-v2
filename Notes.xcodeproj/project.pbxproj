@@ -14,6 +14,7 @@
 		3A3C0FB929A6895A0055C4AD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C0FB829A6895A0055C4AD /* Persistence.swift */; };
 		3A3C0FBC29A6895A0055C4AD /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C0FBA29A6895A0055C4AD /* Notes.xcdatamodeld */; };
 		3A3C0FC329A807180055C4AD /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C0FC229A807170055C4AD /* AddNoteView.swift */; };
+		3A3D48112C88D92F003AC8F1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47E32C88D92F003AC8F1 /* .gitignore */; };
 		3A56AB1229BA69690016636B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1129BA69690016636B /* ImagePicker.swift */; };
 		3A56AB1429BE1BBA0016636B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1329BE1BBA0016636B /* LocationManager.swift */; };
 		3AD0B62F29B1377300C051D8 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0B62E29B1377300C051D8 /* NoteView.swift */; };
@@ -31,6 +32,7 @@
 		3A3C0FB829A6895A0055C4AD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3A3C0FBB29A6895A0055C4AD /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 		3A3C0FC229A807170055C4AD /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		3A3D47E32C88D92F003AC8F1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		3A56AB1129BA69690016636B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3A56AB1329BE1BBA0016636B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3AD0B62E29B1377300C051D8 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		3A3C0FAE29A689560055C4AD /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				3A3D47E32C88D92F003AC8F1 /* .gitignore */,
 				3A196C702A0441C200CD8428 /* Info.plist */,
 				3A3C0FAF29A689560055C4AD /* NotesApp.swift */,
 				3A3C0FB829A6895A0055C4AD /* Persistence.swift */,
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A3C0FB729A6895A0055C4AD /* Preview Assets.xcassets in Resources */,
+				3A3D48112C88D92F003AC8F1 /* .gitignore in Resources */,
 				3A3C0FB429A6895A0055C4AD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
