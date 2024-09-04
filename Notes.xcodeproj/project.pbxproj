@@ -15,35 +15,6 @@
 		3A3C0FBC29A6895A0055C4AD /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C0FBA29A6895A0055C4AD /* Notes.xcdatamodeld */; };
 		3A3C0FC329A807180055C4AD /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C0FC229A807170055C4AD /* AddNoteView.swift */; };
 		3A3D48112C88D92F003AC8F1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47E32C88D92F003AC8F1 /* .gitignore */; };
-		3A3D48122C88D92F003AC8F1 /* applypatch-msg.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47E42C88D92F003AC8F1 /* applypatch-msg.sample */; };
-		3A3D48132C88D92F003AC8F1 /* commit-msg.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47E52C88D92F003AC8F1 /* commit-msg.sample */; };
-		3A3D48142C88D92F003AC8F1 /* fsmonitor-watchman.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47E62C88D92F003AC8F1 /* fsmonitor-watchman.sample */; };
-		3A3D48152C88D92F003AC8F1 /* post-update.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47E72C88D92F003AC8F1 /* post-update.sample */; };
-		3A3D48162C88D92F003AC8F1 /* pre-applypatch.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47E82C88D92F003AC8F1 /* pre-applypatch.sample */; };
-		3A3D48172C88D92F003AC8F1 /* pre-commit.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47E92C88D92F003AC8F1 /* pre-commit.sample */; };
-		3A3D48182C88D92F003AC8F1 /* pre-merge-commit.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47EA2C88D92F003AC8F1 /* pre-merge-commit.sample */; };
-		3A3D48192C88D92F003AC8F1 /* pre-push.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47EB2C88D92F003AC8F1 /* pre-push.sample */; };
-		3A3D481A2C88D92F003AC8F1 /* pre-rebase.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47EC2C88D92F003AC8F1 /* pre-rebase.sample */; };
-		3A3D481B2C88D92F003AC8F1 /* pre-receive.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47ED2C88D92F003AC8F1 /* pre-receive.sample */; };
-		3A3D481C2C88D92F003AC8F1 /* prepare-commit-msg.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47EE2C88D92F003AC8F1 /* prepare-commit-msg.sample */; };
-		3A3D481D2C88D92F003AC8F1 /* push-to-checkout.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47EF2C88D92F003AC8F1 /* push-to-checkout.sample */; };
-		3A3D481E2C88D92F003AC8F1 /* update.sample in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47F02C88D92F003AC8F1 /* update.sample */; };
-		3A3D481F2C88D92F003AC8F1 /* exclude in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47F22C88D92F003AC8F1 /* exclude */; };
-		3A3D48202C88D92F003AC8F1 /* fixes in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47F42C88D92F003AC8F1 /* fixes */; };
-		3A3D48212C88D92F003AC8F1 /* main in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47F52C88D92F003AC8F1 /* main */; };
-		3A3D48222C88D92F003AC8F1 /* HEAD in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47F72C88D92F003AC8F1 /* HEAD */; };
-		3A3D48232C88D92F003AC8F1 /* HEAD in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47FB2C88D92F003AC8F1 /* HEAD */; };
-		3A3D48242C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.idx in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47FE2C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.idx */; };
-		3A3D48252C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.pack in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D47FF2C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.pack */; };
-		3A3D48262C88D92F003AC8F1 /* fixes in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D48022C88D92F003AC8F1 /* fixes */; };
-		3A3D48272C88D92F003AC8F1 /* main in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D48032C88D92F003AC8F1 /* main */; };
-		3A3D48282C88D92F003AC8F1 /* HEAD in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D48052C88D92F003AC8F1 /* HEAD */; };
-		3A3D48292C88D92F003AC8F1 /* config in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D480A2C88D92F003AC8F1 /* config */; };
-		3A3D482A2C88D92F003AC8F1 /* description in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D480B2C88D92F003AC8F1 /* description */; };
-		3A3D482B2C88D92F003AC8F1 /* FETCH_HEAD in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D480C2C88D92F003AC8F1 /* FETCH_HEAD */; };
-		3A3D482C2C88D92F003AC8F1 /* HEAD in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D480D2C88D92F003AC8F1 /* HEAD */; };
-		3A3D482D2C88D92F003AC8F1 /* index in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D480E2C88D92F003AC8F1 /* index */; };
-		3A3D482E2C88D92F003AC8F1 /* packed-refs in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D480F2C88D92F003AC8F1 /* packed-refs */; };
 		3A56AB1229BA69690016636B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1129BA69690016636B /* ImagePicker.swift */; };
 		3A56AB1429BE1BBA0016636B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56AB1329BE1BBA0016636B /* LocationManager.swift */; };
 		3AD0B62F29B1377300C051D8 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD0B62E29B1377300C051D8 /* NoteView.swift */; };
@@ -62,35 +33,6 @@
 		3A3C0FBB29A6895A0055C4AD /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
 		3A3C0FC229A807170055C4AD /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		3A3D47E32C88D92F003AC8F1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
-		3A3D47E42C88D92F003AC8F1 /* applypatch-msg.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "applypatch-msg.sample"; sourceTree = "<group>"; };
-		3A3D47E52C88D92F003AC8F1 /* commit-msg.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "commit-msg.sample"; sourceTree = "<group>"; };
-		3A3D47E62C88D92F003AC8F1 /* fsmonitor-watchman.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = "fsmonitor-watchman.sample"; sourceTree = "<group>"; };
-		3A3D47E72C88D92F003AC8F1 /* post-update.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "post-update.sample"; sourceTree = "<group>"; };
-		3A3D47E82C88D92F003AC8F1 /* pre-applypatch.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-applypatch.sample"; sourceTree = "<group>"; };
-		3A3D47E92C88D92F003AC8F1 /* pre-commit.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-commit.sample"; sourceTree = "<group>"; };
-		3A3D47EA2C88D92F003AC8F1 /* pre-merge-commit.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-merge-commit.sample"; sourceTree = "<group>"; };
-		3A3D47EB2C88D92F003AC8F1 /* pre-push.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-push.sample"; sourceTree = "<group>"; };
-		3A3D47EC2C88D92F003AC8F1 /* pre-rebase.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-rebase.sample"; sourceTree = "<group>"; };
-		3A3D47ED2C88D92F003AC8F1 /* pre-receive.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "pre-receive.sample"; sourceTree = "<group>"; };
-		3A3D47EE2C88D92F003AC8F1 /* prepare-commit-msg.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "prepare-commit-msg.sample"; sourceTree = "<group>"; };
-		3A3D47EF2C88D92F003AC8F1 /* push-to-checkout.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "push-to-checkout.sample"; sourceTree = "<group>"; };
-		3A3D47F02C88D92F003AC8F1 /* update.sample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update.sample; sourceTree = "<group>"; };
-		3A3D47F22C88D92F003AC8F1 /* exclude */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = exclude; sourceTree = "<group>"; };
-		3A3D47F42C88D92F003AC8F1 /* fixes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fixes; sourceTree = "<group>"; };
-		3A3D47F52C88D92F003AC8F1 /* main */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main; sourceTree = "<group>"; };
-		3A3D47F72C88D92F003AC8F1 /* HEAD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HEAD; sourceTree = "<group>"; };
-		3A3D47FB2C88D92F003AC8F1 /* HEAD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HEAD; sourceTree = "<group>"; };
-		3A3D47FE2C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.idx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.idx"; sourceTree = "<group>"; };
-		3A3D47FF2C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.pack */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.pack"; sourceTree = "<group>"; };
-		3A3D48022C88D92F003AC8F1 /* fixes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fixes; sourceTree = "<group>"; };
-		3A3D48032C88D92F003AC8F1 /* main */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main; sourceTree = "<group>"; };
-		3A3D48052C88D92F003AC8F1 /* HEAD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HEAD; sourceTree = "<group>"; };
-		3A3D480A2C88D92F003AC8F1 /* config */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config; sourceTree = "<group>"; };
-		3A3D480B2C88D92F003AC8F1 /* description */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = description; sourceTree = "<group>"; };
-		3A3D480C2C88D92F003AC8F1 /* FETCH_HEAD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FETCH_HEAD; sourceTree = "<group>"; };
-		3A3D480D2C88D92F003AC8F1 /* HEAD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HEAD; sourceTree = "<group>"; };
-		3A3D480E2C88D92F003AC8F1 /* index */ = {isa = PBXFileReference; lastKnownFileType = file; path = index; sourceTree = "<group>"; };
-		3A3D480F2C88D92F003AC8F1 /* packed-refs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "packed-refs"; sourceTree = "<group>"; };
 		3A56AB1129BA69690016636B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3A56AB1329BE1BBA0016636B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3AD0B62E29B1377300C051D8 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
@@ -128,7 +70,6 @@
 		3A3C0FAE29A689560055C4AD /* Notes */ = {
 			isa = PBXGroup;
 			children = (
-				3A3D48102C88D92F003AC8F1 /* .git */,
 				3A3D47E32C88D92F003AC8F1 /* .gitignore */,
 				3A196C702A0441C200CD8428 /* Info.plist */,
 				3A3C0FAF29A689560055C4AD /* NotesApp.swift */,
@@ -162,162 +103,6 @@
 			);
 			path = View;
 			sourceTree = "<group>";
-		};
-		3A3D47F12C88D92F003AC8F1 /* hooks */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47E42C88D92F003AC8F1 /* applypatch-msg.sample */,
-				3A3D47E52C88D92F003AC8F1 /* commit-msg.sample */,
-				3A3D47E62C88D92F003AC8F1 /* fsmonitor-watchman.sample */,
-				3A3D47E72C88D92F003AC8F1 /* post-update.sample */,
-				3A3D47E82C88D92F003AC8F1 /* pre-applypatch.sample */,
-				3A3D47E92C88D92F003AC8F1 /* pre-commit.sample */,
-				3A3D47EA2C88D92F003AC8F1 /* pre-merge-commit.sample */,
-				3A3D47EB2C88D92F003AC8F1 /* pre-push.sample */,
-				3A3D47EC2C88D92F003AC8F1 /* pre-rebase.sample */,
-				3A3D47ED2C88D92F003AC8F1 /* pre-receive.sample */,
-				3A3D47EE2C88D92F003AC8F1 /* prepare-commit-msg.sample */,
-				3A3D47EF2C88D92F003AC8F1 /* push-to-checkout.sample */,
-				3A3D47F02C88D92F003AC8F1 /* update.sample */,
-			);
-			path = hooks;
-			sourceTree = "<group>";
-		};
-		3A3D47F32C88D92F003AC8F1 /* info */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47F22C88D92F003AC8F1 /* exclude */,
-			);
-			path = info;
-			sourceTree = "<group>";
-		};
-		3A3D47F62C88D92F003AC8F1 /* heads */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47F42C88D92F003AC8F1 /* fixes */,
-				3A3D47F52C88D92F003AC8F1 /* main */,
-			);
-			path = heads;
-			sourceTree = "<group>";
-		};
-		3A3D47F82C88D92F003AC8F1 /* origin */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47F72C88D92F003AC8F1 /* HEAD */,
-			);
-			path = origin;
-			sourceTree = "<group>";
-		};
-		3A3D47F92C88D92F003AC8F1 /* remotes */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47F82C88D92F003AC8F1 /* origin */,
-			);
-			path = remotes;
-			sourceTree = "<group>";
-		};
-		3A3D47FA2C88D92F003AC8F1 /* refs */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47F62C88D92F003AC8F1 /* heads */,
-				3A3D47F92C88D92F003AC8F1 /* remotes */,
-			);
-			path = refs;
-			sourceTree = "<group>";
-		};
-		3A3D47FC2C88D92F003AC8F1 /* logs */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47FA2C88D92F003AC8F1 /* refs */,
-				3A3D47FB2C88D92F003AC8F1 /* HEAD */,
-			);
-			path = logs;
-			sourceTree = "<group>";
-		};
-		3A3D47FD2C88D92F003AC8F1 /* info */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = info;
-			sourceTree = "<group>";
-		};
-		3A3D48002C88D92F003AC8F1 /* pack */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47FE2C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.idx */,
-				3A3D47FF2C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.pack */,
-			);
-			path = pack;
-			sourceTree = "<group>";
-		};
-		3A3D48012C88D92F003AC8F1 /* objects */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47FD2C88D92F003AC8F1 /* info */,
-				3A3D48002C88D92F003AC8F1 /* pack */,
-			);
-			path = objects;
-			sourceTree = "<group>";
-		};
-		3A3D48042C88D92F003AC8F1 /* heads */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D48022C88D92F003AC8F1 /* fixes */,
-				3A3D48032C88D92F003AC8F1 /* main */,
-			);
-			path = heads;
-			sourceTree = "<group>";
-		};
-		3A3D48062C88D92F003AC8F1 /* origin */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D48052C88D92F003AC8F1 /* HEAD */,
-			);
-			path = origin;
-			sourceTree = "<group>";
-		};
-		3A3D48072C88D92F003AC8F1 /* remotes */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D48062C88D92F003AC8F1 /* origin */,
-			);
-			path = remotes;
-			sourceTree = "<group>";
-		};
-		3A3D48082C88D92F003AC8F1 /* tags */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tags;
-			sourceTree = "<group>";
-		};
-		3A3D48092C88D92F003AC8F1 /* refs */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D48042C88D92F003AC8F1 /* heads */,
-				3A3D48072C88D92F003AC8F1 /* remotes */,
-				3A3D48082C88D92F003AC8F1 /* tags */,
-			);
-			path = refs;
-			sourceTree = "<group>";
-		};
-		3A3D48102C88D92F003AC8F1 /* .git */ = {
-			isa = PBXGroup;
-			children = (
-				3A3D47F12C88D92F003AC8F1 /* hooks */,
-				3A3D47F32C88D92F003AC8F1 /* info */,
-				3A3D47FC2C88D92F003AC8F1 /* logs */,
-				3A3D48012C88D92F003AC8F1 /* objects */,
-				3A3D48092C88D92F003AC8F1 /* refs */,
-				3A3D480A2C88D92F003AC8F1 /* config */,
-				3A3D480B2C88D92F003AC8F1 /* description */,
-				3A3D480C2C88D92F003AC8F1 /* FETCH_HEAD */,
-				3A3D480D2C88D92F003AC8F1 /* HEAD */,
-				3A3D480E2C88D92F003AC8F1 /* index */,
-				3A3D480F2C88D92F003AC8F1 /* packed-refs */,
-			);
-			path = .git;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -377,38 +162,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A3D482C2C88D92F003AC8F1 /* HEAD in Resources */,
-				3A3D481E2C88D92F003AC8F1 /* update.sample in Resources */,
-				3A3D481B2C88D92F003AC8F1 /* pre-receive.sample in Resources */,
 				3A3C0FB729A6895A0055C4AD /* Preview Assets.xcassets in Resources */,
-				3A3D48232C88D92F003AC8F1 /* HEAD in Resources */,
-				3A3D48292C88D92F003AC8F1 /* config in Resources */,
-				3A3D48212C88D92F003AC8F1 /* main in Resources */,
 				3A3D48112C88D92F003AC8F1 /* .gitignore in Resources */,
-				3A3D48282C88D92F003AC8F1 /* HEAD in Resources */,
-				3A3D482B2C88D92F003AC8F1 /* FETCH_HEAD in Resources */,
-				3A3D48132C88D92F003AC8F1 /* commit-msg.sample in Resources */,
-				3A3D481D2C88D92F003AC8F1 /* push-to-checkout.sample in Resources */,
-				3A3D481C2C88D92F003AC8F1 /* prepare-commit-msg.sample in Resources */,
-				3A3D482A2C88D92F003AC8F1 /* description in Resources */,
-				3A3D482D2C88D92F003AC8F1 /* index in Resources */,
-				3A3D48152C88D92F003AC8F1 /* post-update.sample in Resources */,
-				3A3D482E2C88D92F003AC8F1 /* packed-refs in Resources */,
-				3A3D48272C88D92F003AC8F1 /* main in Resources */,
-				3A3D48252C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.pack in Resources */,
-				3A3D48172C88D92F003AC8F1 /* pre-commit.sample in Resources */,
-				3A3D48262C88D92F003AC8F1 /* fixes in Resources */,
-				3A3D48222C88D92F003AC8F1 /* HEAD in Resources */,
-				3A3D48182C88D92F003AC8F1 /* pre-merge-commit.sample in Resources */,
 				3A3C0FB429A6895A0055C4AD /* Assets.xcassets in Resources */,
-				3A3D48242C88D92F003AC8F1 /* pack-104c1f1e45e614551d53b0d5276c24b3a1198f92.idx in Resources */,
-				3A3D481F2C88D92F003AC8F1 /* exclude in Resources */,
-				3A3D48202C88D92F003AC8F1 /* fixes in Resources */,
-				3A3D48192C88D92F003AC8F1 /* pre-push.sample in Resources */,
-				3A3D48142C88D92F003AC8F1 /* fsmonitor-watchman.sample in Resources */,
-				3A3D48122C88D92F003AC8F1 /* applypatch-msg.sample in Resources */,
-				3A3D48162C88D92F003AC8F1 /* pre-applypatch.sample in Resources */,
-				3A3D481A2C88D92F003AC8F1 /* pre-rebase.sample in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
