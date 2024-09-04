@@ -1,0 +1,65 @@
+# Xcode
+#
+# Apple Xcode build and user settings
+
+# Build generated
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad
+*.xcworkspace/xcuserdata
+*.xcscheme
+*.xcscheme/
+*.xccheckout
+*.xcodeproj/project.xcworkspace/xcuserdata
+*.xcuserstate
+
+# Swift Package Manager
+/.build
+/.swiftpm/x86_64-apple-macosx*/.build/
+.swiftpm
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/last_test_report.xml
+
+# Xcode
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcuserdata/
+*.xcscheme
+*.xcscheme/
+*.xccheckout
+
+# AppCode
+.idea/
+
+# General
+.DS_Store
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Archives
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcarchive
+
+# Other
+*.lock
+*.log
+*.tmp
+*.temp
